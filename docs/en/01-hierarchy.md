@@ -128,8 +128,9 @@ Rules:
    home-layer managed block.
 5. A manager must not manage itself, and must not disable rows it depends on.
 
-A manager inside a collection is also single-layer but lives at `<collection-version>\<manager>\`;
-this is the only combination of collection and management layer.
+A manager inside a collection is also single-layer and lives either at the collection root
+(`<collection-name>\<manager>\`) or under the collection version layer
+(`<collection-version>\<manager>\`); this is the only combination of collection and management layer.
 
 ## 6. Version directory snapshot
 

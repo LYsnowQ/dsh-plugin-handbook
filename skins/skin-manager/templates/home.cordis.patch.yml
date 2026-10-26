@@ -1,0 +1,26 @@
+# ============================================================================
+# $DSH_HOME/cordis.patch.yml —— home 层补丁（机器级）
+# ============================================================================
+# 【优先级】加载顺序（后者覆盖前者，权重从低到高）：
+#   1. 各 bundle 的 patch（按 profiles\<name>\package.json 的 dsh.profile.bundles 顺序）
+#   2. profiles\<name>\cordis.patch.yml          （profile 层：只对该 profile 生效）
+#   3. $DSH_HOME\cordis.patch.yml                （本文件，home 层：对所有 profile 生效，压过第 2 层）
+#   4. --patch <path> 覆盖层                      （命令行临时覆盖，权重最高）
+#   5. 遥测开关（DSH_TELEMETRY_DISABLED 环境变量合成，非文件）
+#
+# 【格式】顶层必须是一个 YAML 数组。每一项要么改已有条目（- id: xxx + 覆盖键），
+#   要么往某个 group 里插条目（- id: 组id + insert: [...]）。没有 remove 语法，
+#   关闭一个条目只有 disabled: true 这一种写法；`name` 只是断言，写错会让整条补丁被跳过。
+#
+# 【托管区块】下面两个自动维护的区块分别属于 dsh-skin-manager 与 dsh-plugin-manager。
+#   请勿手工编辑区块内部——下次在设置里切换就会被覆盖。
+#   你要手写补丁，请写在区块**外**（例如本行下方），区块外的内容一律原样保留。
+# ============================================================================
+
+# >>> dsh-skin-manager:managed >>>
+# dsh-skin-manager: managed entries（首次启动时由插件填充）
+# <<< dsh-skin-manager:managed <<<
+
+# >>> dsh-plugin-manager:managed >>>
+# dsh-plugin-manager: managed entries（首次启动时由插件填充）
+# <<< dsh-plugin-manager:managed <<<

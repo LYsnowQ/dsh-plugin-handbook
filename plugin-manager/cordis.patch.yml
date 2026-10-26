@@ -1,0 +1,14 @@
+# ============================================================================
+# dsh-plugin-manager — bundle patch
+# ============================================================================
+# Mounts the plugin manager itself only.
+# Managed third-party plugins are not mounted here; they are toggled through
+# the home-layer managed block in $DSH_HOME/cordis.patch.yml.
+#
+# Install:
+#   dsh plugin --profile <profile> add "link:<path-to-this-directory>"
+# ============================================================================
+
+- insert:
+    - id: dsh-plugin-manager
+      name: dsh-plugin-manager

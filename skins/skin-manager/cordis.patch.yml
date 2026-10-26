@@ -1,0 +1,14 @@
+# ============================================================================
+# dsh-skin-manager — bundle patch
+# ============================================================================
+# Mounts the skin manager itself only. Managed skin plugins (ui-skin-*) are not
+# mounted here; they are enabled/disabled through the home-layer managed block
+# in $DSH_HOME/cordis.patch.yml.
+#
+# Install:
+#   dsh plugin --profile <profile> add "link:<path-to-this-directory>"
+# ============================================================================
+
+- insert:
+    - id: dsh-skin-manager
+      name: dsh-skin-manager

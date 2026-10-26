@@ -1,10 +1,16 @@
 # AGENTS.md
 
-This repository is a DSH plugin-management specification, not an installable plugin package.
+This repository contains the bilingual DSH plugin-management specification plus two reference manager bundles:
+
+- `plugin-manager/` — `dsh-plugin-manager`
+- `skins/skin-manager/` — `dsh-skin-manager`
+
+It is not a single installable plugin package. The managers are separate bundles; each can be registered with
+`dsh plugin add "link:<path>"`.
 
 On first use in an environment:
 
-1. Read `README.md` and `docs/en/README.md` (or `docs/zh/README.md`) plus chapters `01`–`03` and `07`.
+1. Read `README.md`, `docs/en/README.md` (or `docs/zh/README.md`), chapters `01`–`03` and `07`.
 2. Perform a read-only inventory: installed plugins, versions, registration paths, profile, patch layers.
 3. Confirm with the user:
    - whether to bring existing plugins under this specification;
@@ -15,9 +21,17 @@ On first use in an environment:
 5. Before approval, do not: delete or move plugins, modify the profile `package.json` or patches, or run `remove`.
 6. Reconfirm before any operation that changes registration or deletes files.
 
+Reference managers:
+
+- `plugin-manager/resources/registry.json` and `skins/skin-manager/resources/skins.json` are empty by default.
+- No third-party plugins, skins, or skin CSS are bundled.
+- UI strings are Chinese; adapt them if required.
+
 ## 中文
 
-本仓库是 DSH 插件管理规范，不是可安装插件。
+本仓库包含 DSH 插件管理规范的中英双语文档，以及两个管理器参考实现：
+`plugin-manager/`（`dsh-plugin-manager`）与 `skins/skin-manager/`（`dsh-skin-manager`）。
+它们各自是独立 bundle，需分别注册；仓库本身不是单个可安装插件。
 
 首次接入某环境时：
 

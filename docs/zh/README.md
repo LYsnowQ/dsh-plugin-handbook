@@ -4,7 +4,8 @@
 
 DSH（DeepSeek Harness）插件的目录层级、包契约、生命周期、patch 优先级与管理器约束。面向维护者与 AI agent。
 
-仓库结构：`docs/zh/`（中文）、`docs/en/`（英文）、`templates/`（模板与脚本）。
+仓库结构：`docs/zh/`（中文）、`docs/en/`（英文）、`templates/`（模板与脚本）、
+`plugin-manager/` 与 `skins/skin-manager/`（管理器参考实现）。
 
 ## 文档
 
@@ -20,6 +21,23 @@ DSH（DeepSeek Harness）插件的目录层级、包契约、生命周期、patc
 | [English](../en/README.md) | English documentation |
 | [templates/](../../templates/) | 可复制模板与 `new-plugin.ps1` |
 | [AGENTS.md](../../AGENTS.md) | agent 入口与首次接入约束 |
+
+## 参考实现
+
+| 目录 | 包名 | 说明 |
+|---|---|---|
+| [`plugin-manager/`](../../plugin-manager/) | `dsh-plugin-manager` | 插件管理器：设置页开关，写 home 层托管区块 |
+| [`skins/skin-manager/`](../../skins/skin-manager/) | `dsh-skin-manager` | 皮肤管理器：皮肤作为资源，单选切换 |
+
+注册（仓库根可直接作为 `%PLUGIN_ROOT%`）：
+
+```powershell
+dsh plugin --profile <profile> add "link:<repo>\plugin-manager"
+dsh plugin --profile <profile> add "link:<repo>\skins\skin-manager"
+```
+
+两个管理器均自带空登记：`plugin-manager/resources/registry.json`、`skins/skin-manager/resources/skins.json`。
+不包含第三方插件、皮肤或皮肤 CSS；皮肤需自行补清单与 CSS。UI 文案为中文，可按需修改。
 
 ## 目录树
 

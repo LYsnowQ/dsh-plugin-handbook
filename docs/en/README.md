@@ -5,7 +5,8 @@
 Directory hierarchy, package contract, lifecycle, patch priority, and manager constraints for DSH
 (DeepSeek Harness) plugins. Intended for maintainers and AI agents.
 
-Repository layout: `docs/en/` (English), `docs/zh/` (Chinese), `templates/` (templates and scripts).
+Repository layout: `docs/en/` (English), `docs/zh/` (Chinese), `templates/` (templates and scripts),
+`plugin-manager/` and `skins/skin-manager/` (reference managers).
 
 ## Documentation
 
@@ -21,6 +22,23 @@ Repository layout: `docs/en/` (English), `docs/zh/` (Chinese), `templates/` (tem
 | [简体中文](../zh/README.md) | Chinese documentation |
 | [templates/](../../templates/) | copyable templates and `new-plugin.ps1` |
 | [AGENTS.md](../../AGENTS.md) | agent entry point and first-run constraints |
+
+## Reference managers
+
+| Directory | Package | Purpose |
+|---|---|---|
+| [`plugin-manager/`](../../plugin-manager/) | `dsh-plugin-manager` | settings-page switches; writes the home-layer managed block |
+| [`skins/skin-manager/`](../../skins/skin-manager/) | `dsh-skin-manager` | skins as resources; single-select switching |
+
+```powershell
+# the repository root can serve as %PLUGIN_ROOT%
+dsh plugin --profile <profile> add "link:<repo>\plugin-manager"
+dsh plugin --profile <profile> add "link:<repo>\skins\skin-manager"
+```
+
+Both managers ship with empty registries: `plugin-manager/resources/registry.json` and
+`skins/skin-manager/resources/skins.json`. No third-party plugins, skins, or skin CSS are included.
+Skins require manifest entries and CSS supplied by the user. UI strings are Chinese and can be adapted.
 
 ## Directory tree
 

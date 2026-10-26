@@ -1,0 +1,30 @@
+{
+  "name": "dsh-skin-manager",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Skin manager for DSH: treats skins as resources, provides single-select switching, and toggles skin plugin rows through the home-layer managed block",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": []
+    }
+  },
+  "license": "MIT",
+  "files": [
+    "lib",
+    "resources",
+    "templates",
+    "cordis.patch.yml",
+    "README.md"
+  ]
+}

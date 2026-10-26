@@ -5,9 +5,11 @@
 A bilingual specification for DSH (DeepSeek Harness) plugin management: directory hierarchy, package contract,
 lifecycle, patch-layer priority, and manager constraints. Intended for maintainers and AI agents.
 
-This repository contains documentation, templates, and scripts only; it is not an installable plugin package.
+This repository contains documentation, templates, scripts, and two reference manager plugins.
+It is not itself an installable package; the manager directories can be copied or registered as bundles.
 
 中文摘要：本仓库提供 DSH 插件管理规范的中英双语版本，覆盖目录层级、插件包契约、安装升级、patch 层优先级与管理器约束。
+另附两个可复用的管理插件参考实现：`plugin-manager` 与 `skins/skin-manager`。
 中文完整文档见 [docs/zh/](docs/zh/README.md)。
 
 ## Repository layout
@@ -28,8 +30,29 @@ This repository contains documentation, templates, and scripts only; it is not a
 │   │   ├── 06-conventions.md
 │   │   └── 07-checklist.md
 │   └── zh/                   # 中文文档（同名文件）
+├── plugin-manager/           # reference plugin manager (dsh-plugin-manager)
+├── skins/
+│   └── skin-manager/         # reference skin manager (dsh-skin-manager)
 └── templates/                # package/patch templates and new-plugin.ps1
 ```
+
+## Reference managers
+
+| Directory | Package | Purpose |
+|---|---|---|
+| `plugin-manager/` | `dsh-plugin-manager` | lists third-party bundles in settings and toggles them via the home-layer managed block |
+| `skins/skin-manager/` | `dsh-skin-manager` | treats skins as resources, single-select, toggles `ui-skin-*` rows |
+
+```powershell
+# register the managers; the repository root can serve as %PLUGIN_ROOT%
+dsh plugin --profile <profile> add "link:<repo>\plugin-manager"
+dsh plugin --profile <profile> add "link:<repo>\skins\skin-manager"
+```
+
+Both managers ship with empty registries: `plugin-manager/resources/registry.json` and
+`skins/skin-manager/resources/skins.json`. No third-party plugins, skins, or skin CSS are included.
+The managers scan the active profile and populate their registries as plugins are toggled; skins require
+manifest entries and CSS files supplied by the user. UI strings are Chinese and can be adapted.
 
 ## Core rules
 
