@@ -1,0 +1,28 @@
+# ============================================================================
+# $DSH_HOME/cordis.patch.yml —— home 层补丁（机器级，对所有 profile 生效）
+# ============================================================================
+# 加载顺序（后者覆盖前者，越靠后越说了算）：
+#   1. 各 bundle 的 patch（按 profile 的 dsh.profile.bundles 顺序）
+#   2. profiles\<profile>\cordis.patch.yml     （profile 层：只对该 profile 生效）
+#   3. 本文件                                    （home 层：压过 profile 层）
+#   4. --patch <file>                            （单次覆盖层：临时调试）
+#
+# 格式：顶层必须是 YAML 数组。每一项要么改已有行（- id: ... + 覆盖键），
+# 要么往 group 里插行（- id: <group> + insert: [...]）。
+# 没有 remove 语法：关闭一个条目只有 disabled: true 这一种写法。
+# name 是断言不是选择器；写错会让整条补丁被跳过。
+#
+# 托管区块由管理器自动维护，请勿手工编辑区块内部；
+# 手写补丁请写在区块外——区块外内容会被完整保留。
+# ============================================================================
+
+# >>> __MANAGER_ID__:managed >>>
+# __MANAGER_ID__: managed entries（自动生成，请勿手工编辑）
+- id: __ROW_ID__
+  name: '__NAME__'
+  disabled: false
+# <<< __MANAGER_ID__:managed <<<
+
+# ---- 区块外：手写区（管理器不会改动这里） ----
+# - id: __ANOTHER_ROW_ID__
+#   disabled: true

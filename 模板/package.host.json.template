@@ -1,0 +1,24 @@
+{
+  "name": "__NAME__",
+  "version": "__VERSION__",
+  "private": true,
+  "type": "module",
+  "description": "__DESCRIPTION__",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "FILES.md"
+  ],
+  "license": "MIT"
+}

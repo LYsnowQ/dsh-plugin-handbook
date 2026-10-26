@@ -1,0 +1,16 @@
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# 临时文件 / 日志
+*.tmp
+*.log
+*.bak
+
+# 依赖
+node_modules/
+
+# 编辑器
+.vscode/
+.idea/
