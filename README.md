@@ -97,3 +97,5 @@ dsh --profile <profile> --dump-config | Select-String 'example-plugin'
 4. 确认前禁止：删除/移动插件、改 profile 的 `package.json` 或 patch、执行 `remove`。
 
 迁移已有插件会使原 `link:` 失效，需逐个 `remove` 后重新 `add`（见 `03`）。
+
+将本仓库交给 agent 时，agent 必须先完成以上确认再操作。
