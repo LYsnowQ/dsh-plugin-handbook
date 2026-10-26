@@ -25,7 +25,7 @@
   插件仓库根目录，默认 <用户目录>\dsh-plugins。
 
 .PARAMETER Description
-  一句话说明，写进 package.json 与 README。
+  功能说明，写进 package.json 与 README。
 
 .PARAMETER RowId
   行 id（组合树里的本地 id），默认等于包名。合集/带前缀的插件可另行指定。
