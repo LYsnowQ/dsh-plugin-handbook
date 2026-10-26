@@ -93,11 +93,11 @@ Remove-Item "$root\current" -Force        # 不带尾随反斜杠，不带 -Recu
 4. 仅合集级 `current`，子插件不单独建 `current`。
 5. 注册路径逐个列出：
 
-```powershell
-dsh plugin --profile <profile> add `
-  "link:D:\dsh-plugins\<合集名>\current\<子目录A>" `
-  "link:D:\dsh-plugins\<合集名>\current\<子目录B>"
-```
+   ```powershell
+   dsh plugin --profile <profile> add `
+     "link:D:\dsh-plugins\<合集名>\current\<子目录A>" `
+     "link:D:\dsh-plugins\<合集名>\current\<子目录B>"
+   ```
 
 6. 同时启用多套通常不报错，但会争抢同一资源/视觉位；合集通常为单选，由管理器写 home 层托管区块。
    切换不要用 `dsh plugin remove`。

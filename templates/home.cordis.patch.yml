@@ -1,0 +1,28 @@
+# ============================================================================
+# $DSH_HOME/cordis.patch.yml — home layer (machine-wide, all profiles)
+# ============================================================================
+# Layer order (later wins):
+#   1. bundle patches (dsh.profile.bundles order)
+#   2. profiles\<profile>\cordis.patch.yml   (profile layer)
+#   3. this file                             (home layer; overrides profile)
+#   4. --patch <file>                        (one-shot overlay)
+#
+# Format: top-level YAML array. Each item either overrides an existing row
+# (- id: ... + fields) or inserts rows into a group (- id: <group> + insert).
+# No delete syntax: disable an entry with disabled: true only.
+# name is an assertion, not a selector; a mismatch skips the whole patch.
+#
+# The managed block is maintained by the manager; do not edit inside it.
+# Manual patches go outside the block and are preserved.
+# ============================================================================
+
+# >>> __MANAGER_ID__:managed >>>
+# __MANAGER_ID__: managed entries (auto-generated; do not edit)
+- id: __ROW_ID__
+  name: '__NAME__'
+  disabled: false
+# <<< __MANAGER_ID__:managed <<<
+
+# ---- outside the block: manual area (managers do not modify) ----
+# - id: __ANOTHER_ROW_ID__
+#   disabled: true

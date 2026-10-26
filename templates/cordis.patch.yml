@@ -1,0 +1,11 @@
+# Bundle patch.
+# Inserts this plugin only. Do not declare other plugins here.
+#
+# - id: local row id; may differ from the package name; unique within the composition
+# - name: package name (assertion); a mismatch skips the whole patch; quote if it contains @
+# - config: optional default configuration
+
+- insert:
+    - id: __ROW_ID__
+      name: '__NAME__'
+      # config: {}
